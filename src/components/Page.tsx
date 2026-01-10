@@ -2,12 +2,12 @@ import Link from "next/link";
 
 const nav = [
   { title: "Home", href: "/" },
-  { title: "Skills", href: "/skills" },
+  { title: "Overview", href: "/overview" },
   { title: "Projects", href: "/projects" },
   { title: "Labs", href: "/labs" },
   { title: "Extra Work", href: "/extra-work" },
-  { title: "Leadership & Goals", href: "/leadership-goals" },
 ];
+
 
 export default function Page({
   title,

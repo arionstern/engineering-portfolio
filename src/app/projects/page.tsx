@@ -85,21 +85,21 @@ export default function ProjectsPage() {
               ) : null}
 
              {p.links?.report ? (
-  <li>
-    {p.links.report.startsWith("http") ? (
-      <ExternalLink href={p.links.report}>Report / PDF</ExternalLink>
-    ) : (
-      <a
-        href={p.links.report}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-blue-600 underline"
-      >
-        Report / PDF
-      </a>
-    )}
-  </li>
-) : null}
+            <li>
+                {p.links.report.startsWith("http") ? (
+                <ExternalLink href={p.links.report}>Report / PDF</ExternalLink>
+                ) : (
+                <a
+                    href={p.links.report}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 underline"
+                >
+                    Report / PDF
+                </a>
+                )}
+            </li>
+            ) : null}
 
             </div>
           </div>

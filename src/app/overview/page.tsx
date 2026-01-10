@@ -139,18 +139,23 @@ export default function OverviewPage() {
                 GitHub
               </Link>
               <Link
-                href="https://www.linkedin.com"
+                href="https://www.linkedin.com/in/arion-stern-169173299/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-lg border bg-white px-3 py-2 text-sm font-medium text-zinc-900 hover:bg-zinc-50"
               >
                 LinkedIn
               </Link>
               {/* If you have a resume page or a static PDF route, swap this href */}
               <Link
-                href="/resume"
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-lg border bg-white px-3 py-2 text-sm font-medium text-zinc-900 hover:bg-zinc-50"
               >
                 Resume
               </Link>
+
             </div>
           </div>
         </div>
@@ -269,57 +274,58 @@ export default function OverviewPage() {
           </Card>
         </div>
 
-        {/* Featured projects (this is the missing “overview” punch) */}
-        <SectionTitle>Featured projects</SectionTitle>
-        <div className="grid gap-4 md:grid-cols-2">
-          <ProjectCard
-            title="Computer Vision Color Detection + Embedded UI"
-            subtitle="Python (OpenCV) + Arduino serial pipeline"
-            href="/projects/color-detection"
-            tags={["OpenCV", "HSV", "Serial", "Arduino", "UI"]}
-            bullets={[
-              "Built a real-time color detection pipeline (HSV + noise-averaged ROI sampling).",
-              "Streamed detection output to Arduino over serial; implemented RGB LED modes + LCD pages + button controls.",
-              "Designed for stable performance under changing lighting conditions.",
-            ]}
-          />
+{/* Featured projects */}
+<SectionTitle>Featured projects</SectionTitle>
+<div className="grid gap-4 md:grid-cols-2">
+  <ProjectCard
+    title="Elevation Sort Visualizer"
+    subtitle="Python • Pygame • NOAA elevation dataset"
+    href="/projects/elevation-sort-visualizer"
+    tags={["Algorithms", "Visualization", "Metrics", "UX"]}
+    bullets={[
+      "Animated multiple sorting algorithms on large elevation data.",
+      "Added real-time metrics, tooltips, and user controls for exploration.",
+      "Built for clarity and performance during interactive visualization.",
+    ]}
+  />
 
-          <ProjectCard
-            title="8-Bit Simple CPU on FPGA"
-            subtitle="DE10-Lite • Quartus + ModelSim"
-            href="/projects/8bit-cpu"
-            tags={["FPGA", "VHDL", "FSM", "Datapath/Control"]}
-            bullets={[
-              "Built a CPU with custom instructions and microprogrammed control.",
-              "Developed datapath (ALU, registers, PC) + memory-mapped I/O.",
-              "Verified behavior in simulation and on FPGA hardware.",
-            ]}
-          />
+  <ProjectCard
+    title="Embedded Color Detection System"
+    subtitle="OpenCV (Python) + Arduino serial pipeline"
+    href="/projects/embedded-color-detection"
+    tags={["OpenCV", "HSV", "Serial", "Arduino", "UI"]}
+    bullets={[
+      "Built a real-time color detection pipeline (HSV + mask-based tracking).",
+      "Streamed detection output to Arduino over serial for live LED/LCD feedback.",
+      "Designed for stability under changing lighting conditions.",
+    ]}
+  />
 
-          <ProjectCard
-            title="Microprocessor Applications Labs"
-            subtitle="ATxmega128A1U • C + AVR Assembly"
-            href="/labs/microprocessors"
-            tags={["Interrupts", "PWM", "SPI", "ADC", "DAC", "DMA"]}
-            bullets={[
-              "Integrated digital I/O, timer interrupts, and PWM for precise event-driven behavior.",
-              "Interfaced LSM6DSL IMU via SPI; streamed real-time data through USART.",
-              "Generated DAC sine waveforms with DMA for audio synthesis.",
-            ]}
-          />
+  <ProjectCard
+    title="Microprocessor Applications"
+    subtitle="ATxmega128A1U • C + AVR Assembly labs"
+    href="/labs/microprocessor-applications"
+    tags={["Interrupts", "PWM", "SPI", "ADC", "DAC", "DMA"]}
+    bullets={[
+      "Interrupt/timer-driven firmware patterns and peripheral bring-up.",
+      "Sensor and serial interfacing (SPI/USART) with repeatable debug workflows.",
+      "Waveform generation and data movement concepts (DAC + DMA).",
+    ]}
+  />
 
-          <ProjectCard
-            title="Elevation Sort Visualizer"
-            subtitle="Python • Pygame • NOAA elevation dataset"
-            href="/projects/elevation-sort"
-            tags={["Algorithms", "Visualization", "Metrics", "UX"]}
-            bullets={[
-              "Animated multiple sorting algorithms on large elevation data.",
-              "Added real-time metrics, tooltips, and user controls for exploration.",
-              "Built for clarity and performance during interactive visualization.",
-            ]}
-          />
-        </div>
+  <ProjectCard
+    title="Digital Logic Labs"
+    subtitle="Structured digital design + verification workflow"
+    href="/labs/digital-logic-labs"
+    tags={["FSMs", "Datapath/Control", "Simulation", "Waveforms"]}
+    bullets={[
+      "Built and tested finite state machines and core digital components.",
+      "Focused on correctness, timing reasoning, and waveform-based debugging.",
+      "Documented lab outcomes with clean diagrams and repeatable results.",
+    ]}
+  />
+</div>
+
 
         {/* Engineering Teams */}
         <SectionTitle>Engineering teams</SectionTitle>
