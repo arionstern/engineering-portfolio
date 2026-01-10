@@ -35,13 +35,7 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
   );
 }
 
-function Stat({
-  label,
-  value,
-}: {
-  label: string;
-  value: string;
-}) {
+function Stat({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-xl border bg-white p-5">
       <div className="text-xs font-medium text-zinc-700">{label}</div>
@@ -113,10 +107,11 @@ export default function OverviewPage() {
                 Hardware–software focused computer engineering
               </div>
               <p className="mt-3 text-sm leading-6 text-zinc-900">
-                I’m a Computer Engineering student at the University of Florida focused on
-                embedded systems, digital logic, and performance-aware software. I like working
-                close to the hardware–software boundary—building systems where timing, data flow,
-                and reliability are measurable and intentional.
+                I’m a Computer Engineering student at the University of Florida
+                focused on embedded systems, digital logic, and performance-aware
+                software. I like working close to the hardware–software
+                boundary—building systems where timing, data flow, and reliability
+                are measurable and intentional.
               </p>
 
               <div className="mt-4 flex flex-wrap gap-2">
@@ -134,10 +129,13 @@ export default function OverviewPage() {
             <div className="flex flex-wrap gap-2 md:justify-end">
               <Link
                 href="https://github.com/arionstern"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-lg border bg-white px-3 py-2 text-sm font-medium text-zinc-900 hover:bg-zinc-50"
               >
                 GitHub
               </Link>
+
               <Link
                 href="https://www.linkedin.com/in/arion-stern-169173299/"
                 target="_blank"
@@ -146,7 +144,8 @@ export default function OverviewPage() {
               >
                 LinkedIn
               </Link>
-              {/* If you have a resume page or a static PDF route, swap this href */}
+
+              {/* Put your PDF at: /public/resume.pdf */}
               <Link
                 href="/resume.pdf"
                 target="_blank"
@@ -155,12 +154,11 @@ export default function OverviewPage() {
               >
                 Resume
               </Link>
-
             </div>
           </div>
         </div>
 
-        {/* Stats row (pulls straight from resume) */}
+        {/* Stats row */}
         <SectionTitle>At a glance</SectionTitle>
         <div className="grid gap-4 md:grid-cols-4">
           <Stat label="University" value="UF (HWCOE)" />
@@ -274,58 +272,57 @@ export default function OverviewPage() {
           </Card>
         </div>
 
-{/* Featured projects */}
-<SectionTitle>Featured projects</SectionTitle>
-<div className="grid gap-4 md:grid-cols-2">
-  <ProjectCard
-    title="Elevation Sort Visualizer"
-    subtitle="Python • Pygame • NOAA elevation dataset"
-    href="/projects/elevation-sort-visualizer"
-    tags={["Algorithms", "Visualization", "Metrics", "UX"]}
-    bullets={[
-      "Animated multiple sorting algorithms on large elevation data.",
-      "Added real-time metrics, tooltips, and user controls for exploration.",
-      "Built for clarity and performance during interactive visualization.",
-    ]}
-  />
+        {/* Featured projects */}
+        <SectionTitle>Featured projects</SectionTitle>
+        <div className="grid gap-4 md:grid-cols-2">
+          <ProjectCard
+            title="Elevation Sort Visualizer"
+            subtitle="Python • Pygame • NOAA elevation dataset"
+            href="/projects/elevation-sort-visualizer"
+            tags={["Algorithms", "Visualization", "Metrics", "UX"]}
+            bullets={[
+              "Animated multiple sorting algorithms on large elevation data and highlighted patterns in real terrain-like distributions.",
+              "Added real-time metrics (comparisons/swaps/time), hover tooltips, and controls for interactive exploration.",
+              "Built for clarity and performance during live visualization (smooth updates + consistent UI).",
+            ]}
+          />
 
-  <ProjectCard
-    title="Embedded Color Detection System"
-    subtitle="OpenCV (Python) + Arduino serial pipeline"
-    href="/projects/embedded-color-detection"
-    tags={["OpenCV", "HSV", "Serial", "Arduino", "UI"]}
-    bullets={[
-      "Built a real-time color detection pipeline (HSV + mask-based tracking).",
-      "Streamed detection output to Arduino over serial for live LED/LCD feedback.",
-      "Designed for stability under changing lighting conditions.",
-    ]}
-  />
+          <ProjectCard
+            title="Embedded Color Detection System"
+            subtitle="OpenCV (Python) + Arduino serial pipeline"
+            href="/projects/embedded-color-detection"
+            tags={["OpenCV", "HSV", "Serial", "Arduino", "UI"]}
+            bullets={[
+              "Implemented real-time color detection using HSV conversion + threshold masks for stable tracking under varied lighting.",
+              "Streamed detection output to an Arduino over serial for live feedback and simple embedded UI behavior.",
+              "Designed the pipeline to be modular so new target colors/thresholds could be swapped without changing core logic.",
+            ]}
+          />
 
-  <ProjectCard
-    title="Microprocessor Applications"
-    subtitle="ATxmega128A1U • C + AVR Assembly labs"
-    href="/labs/microprocessor-applications"
-    tags={["Interrupts", "PWM", "SPI", "ADC", "DAC", "DMA"]}
-    bullets={[
-      "Interrupt/timer-driven firmware patterns and peripheral bring-up.",
-      "Sensor and serial interfacing (SPI/USART) with repeatable debug workflows.",
-      "Waveform generation and data movement concepts (DAC + DMA).",
-    ]}
-  />
+          <ProjectCard
+            title="Microprocessor Applications"
+            subtitle="ATxmega128A1U • C + AVR Assembly labs"
+            href="/labs/microprocessor-applications"
+            tags={["Interrupts", "PWM", "SPI", "ADC", "DAC", "DMA"]}
+            bullets={[
+              "Built interrupt/timer-driven firmware patterns and validated behavior with repeatable, scope-friendly debugging.",
+              "Integrated peripherals and serial interfaces (SPI/USART) while reasoning about timing, buffering, and data flow.",
+              "Implemented waveform/data-movement concepts (DAC + DMA) to generate stable outputs and reduce CPU overhead.",
+            ]}
+          />
 
-  <ProjectCard
-    title="Digital Logic Labs"
-    subtitle="Structured digital design + verification workflow"
-    href="/labs/digital-logic-labs"
-    tags={["FSMs", "Datapath/Control", "Simulation", "Waveforms"]}
-    bullets={[
-      "Built and tested finite state machines and core digital components.",
-      "Focused on correctness, timing reasoning, and waveform-based debugging.",
-      "Documented lab outcomes with clean diagrams and repeatable results.",
-    ]}
-  />
-</div>
-
+          <ProjectCard
+            title="Digital Logic Labs"
+            subtitle="Structured digital design + verification workflow"
+            href="/labs/digital-logic-labs"
+            tags={["FSMs", "Datapath/Control", "Simulation", "Waveforms"]}
+            bullets={[
+              "Designed and tested FSM-based components and core digital building blocks with correctness-first structure.",
+              "Used simulation + waveform inspection to verify edge cases and debug control/data interactions.",
+              "Documented lab outcomes with clean explanations and repeatable verification steps.",
+            ]}
+          />
+        </div>
 
         {/* Engineering Teams */}
         <SectionTitle>Engineering teams</SectionTitle>
@@ -375,27 +372,7 @@ export default function OverviewPage() {
           </Card>
         </div>
 
-        {/* Leadership & goals
-        <SectionTitle>Leadership & goals</SectionTitle>
-        <div className="grid gap-4 md:grid-cols-2">
-          <Card title="How I lead" subtitle="What I try to be known for">
-            <ul className="list-disc pl-5 leading-6">
-              <li>Ownership + follow-through</li>
-              <li>Clear documentation and communication</li>
-              <li>Debugging systematically (measure → isolate → fix)</li>
-            </ul>
-          </Card>
-
-          <Card title="Career direction" subtitle="What I’m targeting">
-            <ul className="list-disc pl-5 leading-6">
-              <li>Short-term: deepen embedded + digital fundamentals</li>
-              <li>Mid-term: contribute to team-based hardware/software builds</li>
-              <li>Long-term: design reliable systems and grow into technical leadership</li>
-            </ul>
-          </Card>
-        </div> */}
-
-        {/* Experience (replace placeholders with real roles) */}
+        {/* Experience */}
         <SectionTitle>Experience</SectionTitle>
         <div className="rounded-xl border bg-white p-5">
           <div className="mt-1 text-sm text-zinc-700">
@@ -409,8 +386,15 @@ export default function OverviewPage() {
                 <span className="font-normal text-zinc-700">(Summer 2023)</span>
               </div>
               <ul className="mt-2 list-disc pl-5 text-sm leading-6 text-zinc-900">
-                <li>Taught rescue techniques and CPR; supervised training simulations.</li>
-                <li>Led instruction with safety-first execution and clear communication.</li>
+                <li>
+                  Instructed lifeguard candidates in rescue technique, surveillance patterns, and emergency response scenarios.
+                </li>
+                <li>
+                  Taught CPR/AED and first-aid fundamentals; coached students through skills checkoffs and practical evaluations.
+                </li>
+                <li>
+                  Maintained a safety-first environment by enforcing procedure, clear communication, and consistent standards.
+                </li>
               </ul>
             </div>
 
@@ -420,7 +404,15 @@ export default function OverviewPage() {
                 <span className="font-normal text-zinc-700">(Summer 2022)</span>
               </div>
               <ul className="mt-2 list-disc pl-5 text-sm leading-6 text-zinc-900">
-                <li>Supervised and organized daily activities for children; ensured safety and engagement.</li>
+                <li>
+                  Supervised groups of children throughout daily activities, balancing safety, structure, and engagement.
+                </li>
+                <li>
+                  Organized games and schedules, adapted plans based on group needs, and coordinated logistics with staff.
+                </li>
+                <li>
+                  Supported a positive environment through clear communication, conflict resolution, and consistent routines.
+                </li>
               </ul>
             </div>
 
@@ -430,8 +422,15 @@ export default function OverviewPage() {
                 <span className="font-normal text-zinc-700">(2020–2021)</span>
               </div>
               <ul className="mt-2 list-disc pl-5 text-sm leading-6 text-zinc-900">
-                <li>Conducted loss prevention audits and reported findings in organized spreadsheets.</li>
-                <li>Practiced detail-oriented review and consistent reporting workflows.</li>
+                <li>
+                  Reviewed video footage for loss-prevention audits and documented findings with consistent, organized reporting.
+                </li>
+                <li>
+                  Tracked anomalies and patterns across recordings, ensuring accurate write-ups and attention to detail.
+                </li>
+                <li>
+                  Followed internal procedures and maintained confidentiality while meeting deadlines.
+                </li>
               </ul>
             </div>
           </div>
@@ -441,36 +440,45 @@ export default function OverviewPage() {
         <SectionTitle>Volunteering</SectionTitle>
         <div className="grid gap-4 md:grid-cols-2">
           <Card title="Project Paterson" subtitle="Toy drive / community service">
-            Seasonal volunteering supporting community giving initiatives.
+            <ul className="list-disc pl-5 leading-6">
+              <li>Supported seasonal toy-drive logistics by collecting, sorting, and preparing donated items.</li>
+              <li>Helped organize and package donations to ensure they were ready for distribution.</li>
+            </ul>
           </Card>
+
           <Card title="Tri-Boro Food Pantry" subtitle="Volunteer support">
-            Sorting/packing/distribution support.
+            <ul className="list-disc pl-5 leading-6">
+              <li>Sorted and packed food items for distribution, keeping inventory organized and accessible.</li>
+              <li>Assisted with day-of operations to support efficient pickup and community service flow.</li>
+            </ul>
           </Card>
+
           <Card title="Montvale Baseball Clinic" subtitle="Volunteer coaching/assistance">
-            Assisted with youth baseball instruction and events.
+            <ul className="list-disc pl-5 leading-6">
+              <li>Assisted coaches with drills and station setup; supported player instruction and safety.</li>
+              <li>Helped keep sessions organized and engaging for youth participants.</li>
+            </ul>
           </Card>
+
           <Card title="Talbot Elementary STEM Outreach" subtitle="STEM support / outreach">
-            Helped support STEM learning activities and student engagement.
+            <ul className="list-disc pl-5 leading-6">
+              <li>Helped facilitate hands-on STEM activities for elementary students in small groups.</li>
+              <li>Supported classroom flow by setting up materials, guiding steps, and encouraging participation.</li>
+            </ul>
           </Card>
         </div>
 
-        {/* Honors (quick credibility section) */}
+        {/* Honors */}
         <SectionTitle>Honors</SectionTitle>
         <div className="grid gap-4 md:grid-cols-2">
-          <Card
-            title="UF Scholarships & Recognition"
-            subtitle="Academic standing"
-          >
+          <Card title="UF Scholarships & Recognition" subtitle="Academic standing">
             <ul className="list-disc pl-5 leading-6">
               <li>University of Florida Distinguished Scholar Waiver</li>
               <li>Dean’s List (Fall 2024, Spring 2025)</li>
             </ul>
           </Card>
 
-          <Card
-            title="Career interests"
-            subtitle="Where I’m aiming"
-          >
+          <Card title="Career interests" subtitle="Where I’m aiming">
             <div className="flex flex-wrap gap-2">
               <Badge>Embedded Systems</Badge>
               <Badge>FPGA / Chip Design</Badge>
