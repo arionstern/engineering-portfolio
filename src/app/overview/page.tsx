@@ -161,7 +161,7 @@ export default function OverviewPage() {
         {/* Stats row */}
         <SectionTitle>At a glance</SectionTitle>
         <div className="grid gap-4 md:grid-cols-4">
-          <Stat label="University" value="UF (HWCOE)" />
+          <Stat label="University" value="University of Florida (HWCOE)" />
           <Stat label="GPA" value="4.00" />
           <Stat label="Credits" value="69" />
           <Stat label="Expected grad" value="May 2028" />

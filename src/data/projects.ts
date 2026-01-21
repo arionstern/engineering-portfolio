@@ -602,7 +602,7 @@ export const projects: Project[] = [
 
 
 
-  {
+  /*{
     slug: "microprocessor-lab-portfolio",
     title: "Microprocessor Lab Portfolio (ATxmega128A1U)",
     subtitle:
@@ -642,5 +642,11 @@ export const projects: Project[] = [
     links: {
       report: "/labs",
     },
-  },
+  },*/
+
+
+
+  
 ];
+
+
