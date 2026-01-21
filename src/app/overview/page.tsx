@@ -182,6 +182,7 @@ export default function OverviewPage() {
               <li>Embedded firmware + real hardware interfaces</li>
               <li>Digital systems / FPGA design workflows</li>
               <li>Robotics + sensing + control pipelines</li>
+              <li>Biomedical engineering technologies</li>
             </ul>
           </Card>
 
