@@ -107,7 +107,7 @@ export default function OverviewPage() {
                 Hardware–software focused computer engineering
               </div>
               <p className="mt-3 text-sm leading-6 text-zinc-900">
-                I’m a Computer Engineering student at the University of Florida
+                I'm a Computer Engineering student at the University of Florida
                 focused on embedded systems, digital logic, and performance-aware
                 software. I like working close to the hardware–software
                 boundary—building systems where timing, data flow, and reliability
@@ -120,7 +120,10 @@ export default function OverviewPage() {
                 <Badge>Timers / Interrupts / PWM</Badge>
                 <Badge>ADC / DAC / DMA</Badge>
                 <Badge>FPGA / Digital Logic</Badge>
+                <Badge>VHDL / SystemVerilog</Badge>
+                <Badge>Verification / QuestaSim</Badge>
                 <Badge>C / C++ / Python</Badge>
+                <Badge>Python / ML</Badge>
                 <Badge>Altium PCB</Badge>
               </div>
             </div>
@@ -145,7 +148,6 @@ export default function OverviewPage() {
                 LinkedIn
               </Link>
 
-              {/* Put your PDF at: /public/resume.pdf */}
               <Link
                 href="/resume.pdf"
                 target="_blank"
@@ -163,15 +165,16 @@ export default function OverviewPage() {
         <div className="grid gap-4 md:grid-cols-4">
           <Stat label="University" value="University of Florida (HWCOE)" />
           <Stat label="GPA" value="4.00" />
-          <Stat label="Credits" value="69" />
+          <Stat label="Credits" value="87" />
           <Stat label="Expected grad" value="May 2028" />
         </div>
 
-        {/* Quick “strengths / interests / looking for” */}
+        {/* Strengths / Interests / Looking for */}
         <div className="mt-4 grid gap-4 md:grid-cols-3">
           <Card title="Strengths" subtitle="Where I add value fastest">
             <ul className="list-disc pl-5 leading-6">
               <li>Register-level embedded work + peripheral integration</li>
+              <li>RTL design, simulation, and hardware verification</li>
               <li>Debugging timing + data flow issues end-to-end</li>
               <li>Clean documentation, repeatable testing, and polish</li>
             </ul>
@@ -180,7 +183,7 @@ export default function OverviewPage() {
           <Card title="Interests" subtitle="What I want more of">
             <ul className="list-disc pl-5 leading-6">
               <li>Embedded firmware + real hardware interfaces</li>
-              <li>Digital systems / FPGA design workflows</li>
+              <li>Digital / RTL design and verification workflows</li>
               <li>Robotics + sensing + control pipelines</li>
               <li>Biomedical engineering technologies</li>
             </ul>
@@ -188,8 +191,9 @@ export default function OverviewPage() {
 
           <Card title="Looking for" subtitle="Opportunities">
             <ul className="list-disc pl-5 leading-6">
-              <li>Embedded/firmware internships</li>
-              <li>Hardware–software research roles</li>
+              <li>Embedded / firmware internships</li>
+              <li>RTL design or digital verification roles</li>
+              <li>Hardware–software research positions</li>
               <li>Teams doing bring-up, validation, and system integration</li>
             </ul>
           </Card>
@@ -202,7 +206,7 @@ export default function OverviewPage() {
             <div className="flex flex-wrap gap-2">
               <Badge>ATxmega128A1U</Badge>
               <Badge>Arduino</Badge>
-              <Badge>Raspberry Pi Pico</Badge>
+              <Badge>Raspberry Pi</Badge>
               <Badge>SPI</Badge>
               <Badge>I²C</Badge>
               <Badge>UART</Badge>
@@ -216,7 +220,7 @@ export default function OverviewPage() {
             <ul className="mt-4 list-disc pl-5 leading-6">
               <li>Peripheral interfacing + sensor integration</li>
               <li>Interrupt-driven design + timing-safe patterns</li>
-              <li>End-to-end debug (scope/logic tools + firmware)</li>
+              <li>End-to-end debug (scope / logic tools + firmware)</li>
             </ul>
           </Card>
 
@@ -224,16 +228,19 @@ export default function OverviewPage() {
             <div className="flex flex-wrap gap-2">
               <Badge>DE10-Lite</Badge>
               <Badge>VHDL</Badge>
+              <Badge>SystemVerilog</Badge>
               <Badge>FSMs</Badge>
               <Badge>Datapath/Control</Badge>
+              <Badge>ALU / FSMD</Badge>
+              <Badge>VGA</Badge>
               <Badge>Quartus</Badge>
-              <Badge>ModelSim</Badge>
-              <Badge>Waveforms</Badge>
+              <Badge>QuestaSim</Badge>
+              <Badge>SVA / CRV</Badge>
             </div>
             <ul className="mt-4 list-disc pl-5 leading-6">
-              <li>Structured digital design (FSM + datapath/control)</li>
-              <li>Simulation + waveform-based verification</li>
-              <li>CPU architecture + instruction-set thinking</li>
+              <li>Structural + behavioral RTL design in VHDL and SystemVerilog</li>
+              <li>Functional simulation, waveform verification, and SVA assertions</li>
+              <li>Constrained random verification (CRV) and code coverage analysis</li>
             </ul>
           </Card>
 
@@ -244,12 +251,31 @@ export default function OverviewPage() {
               <Badge>Python</Badge>
               <Badge>Java</Badge>
               <Badge>AVR Assembly</Badge>
+              <Badge>MATLAB</Badge>
               <Badge>Data Structures</Badge>
             </div>
             <ul className="mt-4 list-disc pl-5 leading-6">
               <li>Modular design, readable code, and iteration speed</li>
               <li>Performance awareness (measure → change → verify)</li>
               <li>Comfortable in both low-level + application contexts</li>
+            </ul>
+          </Card>
+
+          <Card title="ML / Signal Processing">
+            <div className="flex flex-wrap gap-2">
+              <Badge>scikit-learn</Badge>
+              <Badge>TensorFlow</Badge>
+              <Badge>PyTorch</Badge>
+              <Badge>MATLAB</Badge>
+              <Badge>NumPy</Badge>
+              <Badge>Matplotlib</Badge>
+              <Badge>FIR/IIR Filters</Badge>
+              <Badge>DTFT/DFT/FFT</Badge>
+            </div>
+            <ul className="mt-4 list-disc pl-5 leading-6">
+              <li>Regression, dimensionality reduction (PCA, manifold learning), and CNNs</li>
+              <li>Signal processing: filtering, sampling theory, frequency-domain analysis</li>
+              <li>Baseline modeling and evaluation pipelines for autonomous systems research</li>
             </ul>
           </Card>
 
@@ -262,8 +288,8 @@ export default function OverviewPage() {
               <Badge>OpenCV</Badge>
               <Badge>Pygame</Badge>
               <Badge>Altium Designer</Badge>
-              <Badge>Quartus</Badge>
-              <Badge>ModelSim</Badge>
+              <Badge>ROS2</Badge>
+              <Badge>GStreamer</Badge>
             </div>
             <ul className="mt-4 list-disc pl-5 leading-6">
               <li>Version control + clean repo structure</li>
@@ -276,6 +302,18 @@ export default function OverviewPage() {
         {/* Featured projects */}
         <SectionTitle>Featured projects</SectionTitle>
         <div className="grid gap-4 md:grid-cols-2">
+          <ProjectCard
+            title="Pong — FPGA VGA Game"
+            subtitle="VHDL • DE10-Lite • Pure hardware logic"
+            href="/projects/pong"
+            tags={["VHDL", "VGA", "FSM", "Bitmap Rendering", "DE10-Lite"]}
+            bullets={[
+              "Implemented a complete 2-player Pong game entirely in synthesized hardware — no CPU, no software, no framebuffer.",
+              "VGA output at 640×480 @ 60 Hz with ball physics, left/right paddles, dashed center line, and live scoreboard rendered from bitmap glyph arrays.",
+              "Top-level FSM manages three game states (Start, Gameplay, Game Over) with next-position lookahead collision detection.",
+            ]}
+          />
+
           <ProjectCard
             title="Elevation Sort Visualizer"
             subtitle="Python • Pygame • NOAA elevation dataset"
@@ -313,7 +351,7 @@ export default function OverviewPage() {
           />
 
           <ProjectCard
-            title="Digital Logic Labs"
+            title="Digital Logic Labs (EEL3701C)"
             subtitle="Structured digital design + verification workflow"
             href="/labs/digital-logic-labs"
             tags={["FSMs", "Datapath/Control", "Simulation", "Waveforms"]}
@@ -326,8 +364,10 @@ export default function OverviewPage() {
         </div>
 
         {/* Engineering Teams */}
-        <SectionTitle>Engineering teams</SectionTitle>
+        <SectionTitle>Engineering teams & research</SectionTitle>
         <div className="grid gap-4">
+
+          {/* Swamp Launch */}
           <Card
             title="Swamp Launch (IREC Team) — Avionics PCB Design & Payload Software"
             subtitle="University of Florida | 2025 – Present"
@@ -369,6 +409,81 @@ export default function OverviewPage() {
               <Link href="/overview/swamp-launch" className="text-blue-600 underline">
                 View details →
               </Link>
+            </div>
+          </Card>
+
+          {/* Dream Team - OR Table */}
+          <Card
+            title="Dream Team Engineering — OR Table Project"
+            subtitle="University of Florida | 2025 – Present"
+          >
+            <div className="flex flex-wrap gap-2">
+              <Badge>Raspberry Pi</Badge>
+              <Badge>Computer Vision</Badge>
+              <Badge>Linux</Badge>
+              <Badge>Networking</Badge>
+              <Badge>GPIO</Badge>
+              <Badge>Camera</Badge>
+            </div>
+
+            <ul className="mt-4 list-disc pl-5 leading-6">
+              <li>
+                Developing a camera system to record and track surgical equipment on an operating room table, in collaboration with a UF general surgery resident, with the goal of reducing instrument waste in open surgical procedures (20–60% of tools are unused per case, costing ~$1M/year in unnecessary sterilization).
+              </li>
+              <li>
+                Integrated Raspberry Pi with an external camera and RGB LED indicator, synchronizing button-press events to camera recording start/stop and visual feedback via GPIO control.
+              </li>
+              <li>
+                Contributing to the hardware and software pipeline that will feed footage into ML-based surgical tool detection models (YOLO, SAM) for identifying which instruments are used versus left idle.
+              </li>
+            </ul>
+          </Card>
+
+          {/* TEA Lab */}
+          <Card
+            title="TEA Lab — Autonomous Systems Research"
+            subtitle="Trustworthy Engineered Autonomy Lab, University of Florida | 2025"
+          >
+            <div className="flex flex-wrap gap-2">
+              <Badge>Python</Badge>
+              <Badge>PyTorch</Badge>
+              <Badge>ROS2</Badge>
+              <Badge>GStreamer</Badge>
+              <Badge>VAE</Badge>
+              <Badge>Trajectory Prediction</Badge>
+              <Badge>DonkeyCar</Badge>
+              <Badge>Linux</Badge>
+            </div>
+
+            <ul className="mt-4 list-disc pl-5 leading-6">
+              <li>
+                Attempted to design a synchronized multi-camera data collection system for an autonomous DonkeyCar platform, engineering low-latency H264 UDP video streaming pipelines with GStreamer and OpenCV while addressing ROS2 cross-version compatibility, distributed timestamp alignment, and network latency. After extensive experimentation, persistent synchronization instability led the team to pivot toward higher-priority research tasks — providing practical experience in distributed real-time systems engineering and architecture tradeoff analysis.
+              </li>
+              <li>
+                Built and evaluated trajectory-prediction baselines for the PIWM (Physically Interpretable World Models) framework: trained a Variational Autoencoder (VAE) for image encoding, implemented a state extractor mapping latent features to 2D coordinates, and implemented DVBF-style and SINDYc-inspired baseline predictive models.
+              </li>
+              <li>
+                Designed multi-step rollout evaluation scripts and visualization tools across horizons of 5, 15, 25, and 35 steps; DVBF consistently outperformed SINDYc (5-step RMSE ≈ 0.034, 35-step RMSE ≈ 0.101). Established a reproducible experimentation pipeline for future PIWM extensions.
+              </li>
+            </ul>
+
+            <div className="mt-4 flex flex-wrap gap-4 text-sm">
+              <a
+                href="https://tea.ece.ufl.edu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 underline"
+              >
+                TEA Lab
+              </a>
+              <a
+                href="https://github.com/Trustworthy-Engineered-Autonomy-Lab/PIWM"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 underline"
+              >
+                PIWM Repository
+              </a>
             </div>
           </Card>
         </div>
@@ -475,18 +590,20 @@ export default function OverviewPage() {
           <Card title="UF Scholarships & Recognition" subtitle="Academic standing">
             <ul className="list-disc pl-5 leading-6">
               <li>University of Florida Distinguished Scholar Waiver</li>
-              <li>Dean’s List (Fall 2024, Spring 2025)</li>
+              <li>Dean's List — Fall 2024, Spring 2025, Spring 2026</li>
+              <li>Eta Kappa Nu (HKN) — IEEE Honor Society, initiated Spring 2026</li>
             </ul>
           </Card>
 
-          <Card title="Career interests" subtitle="Where I’m aiming">
+          <Card title="Career interests" subtitle="Where I'm aiming">
             <div className="flex flex-wrap gap-2">
               <Badge>Embedded Systems</Badge>
+              <Badge>RTL / Digital Design</Badge>
               <Badge>FPGA / Chip Design</Badge>
+              <Badge>Digital Verification</Badge>
               <Badge>Robotics</Badge>
               <Badge>VLSI</Badge>
               <Badge>IoT</Badge>
-              <Badge>Digital Verification</Badge>
               <Badge>Machine Learning</Badge>
             </div>
           </Card>
