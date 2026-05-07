@@ -1,12 +1,11 @@
 import Link from "next/link";
 
 const quickLinks = [
-  { title: "Overview", desc: "About, skills, leadership, work, volunteering", href: "/overview" },
+  { title: "Overview", desc: "About, skills, research, teams, and honors", href: "/overview" },
   { title: "Projects", desc: "Featured builds and deep work", href: "/projects" },
-  { title: "Labs", desc: "EEL4744C + EEL3701C lab portfolio", href: "/labs" },
+  { title: "Labs", desc: "EEL4744C + EEL3701C + EEL4712C + coursework", href: "/labs" },
   { title: "Extra Work", desc: "Supporting projects and experiments", href: "/extra-work" },
 ];
-
 
 function Card({
   title,
@@ -57,7 +56,6 @@ export default function Home() {
               <Link href="/extra-work" className="hover:text-zinc-900">
                 Extra Work
               </Link>
-
             </nav>
           </div>
         </div>
@@ -70,9 +68,9 @@ export default function Home() {
           </h1>
           <p className="mt-4 max-w-3xl text-zinc-900">
             I build hardware-software systems with an emphasis on embedded
-            development, performance-aware design, and clear technical
-            documentation. This site contains my featured projects, lab work,
-            and supporting technical experience.
+            development, digital logic design, and performance-aware software.
+            This site contains my featured projects, lab work, research, and
+            supporting technical experience.
           </p>
 
           <div className="mt-6 flex flex-wrap gap-2">
@@ -84,6 +82,9 @@ export default function Home() {
             </span>
             <span className="rounded-full border bg-white px-3 py-1 text-sm text-zinc-900">
               FPGA / Digital Logic
+            </span>
+            <span className="rounded-full border bg-white px-3 py-1 text-sm text-zinc-900">
+              VHDL / SystemVerilog
             </span>
             <span className="rounded-full border bg-white px-3 py-1 text-sm text-zinc-900">
               Python / C / C++
@@ -99,13 +100,13 @@ export default function Home() {
                 Featured Focus
               </div>
               <ul className="mt-2 list-disc pl-5 text-sm text-zinc-900">
-                <li>ATxmega128A1U embedded lab series (register-level)</li>
+                <li>ATxmega128A1U embedded lab series (register-level C + AVR)</li>
+                <li>2-player Pong in pure VHDL hardware logic on the DE10-Lite</li>
                 <li>Sorting algorithm visualization with interaction + metrics</li>
                 <li>Computer vision color detection designed for embedded use</li>
               </ul>
             </div>
 
-            
             <div className="rounded-xl border bg-zinc-50 p-5">
               <div className="text-sm font-semibold text-zinc-900">Contact</div>
 
@@ -160,13 +161,6 @@ export default function Home() {
                 </a>
               </div>
             </div>
-          
-
-
-
-
-
-
           </div>
 
           <div className="mt-10">
