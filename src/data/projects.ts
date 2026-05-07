@@ -194,6 +194,98 @@ export const projects: Project[] = [
 
 
 
+
+
+
+
+
+
+        {
+    slug: "pong",
+    title: "Pong — FPGA VGA Game",
+    subtitle:
+      "A fully hardware-implemented 2-player Pong game on the DE10-Lite, built in VHDL as extra credit for EEL4712C. No CPU, no software — pure synthesized digital logic.",
+    tech: [
+      "VHDL",
+      "DE10-Lite",
+      "VGA",
+      "Quartus Prime",
+      "FSM",
+      "Bitmap Rendering",
+      "Hardware Logic",
+    ],
+    status: "Featured",
+    highlights: [
+      "Full 2-player Pong in synthesized hardware — no CPU, no software, no framebuffer",
+      "VGA output at 640×480 @ 60 Hz with ball, left/right paddles, dashed center line, and live scoreboard",
+      "Five independent hardware modules: VGA sync, screen FSM, score controller, paddle controller, ball controller",
+      "Bitmap-rendered glyphs for start screen, digit scores (0–9), and game-over winner display",
+    ],
+    media: {
+      youtubeId: "1DTNxwE_x9c",
+    },
+    sections: {
+      problem:
+        "The original Atari Pong arcade cabinet had no microprocessor — the entire game ran as discrete hardware circuits. The challenge here was the same: implement a complete, playable 2-player Pong game on an FPGA using only synthesized digital logic. Every element — ball physics, paddle movement, collision detection, scoring, screen transitions, and text rendering — had to be expressed as clocked VHDL with no software layer of any kind.",
+      approach: [
+        "Built on the VGA sync generator from Lab 5 to produce correctly timed HORIZ_SYNC and VERT_SYNC signals at 640×480 @ 60 Hz from a 25 MHz pixel clock divided off the DE10-Lite's 50 MHz oscillator.",
+        "Designed a top-level rendering process that reads Hcount/Vcount every pixel clock and decides pixel color purely from combinational coordinate comparisons — no framebuffer, no memory reads per pixel.",
+        "Implemented a three-state game FSM (screen_ctrl): START → GAMEPLAY → GAME_OVER, driven by active-low KEY0 (start), score logic (game-over trigger), and active-low KEY1 (reset to start).",
+        "Ball controller (ball_ctrl) tracks X/Y position registers and direction bits, updating once per vsync falling edge (60 Hz). Uses next-position lookahead for top/bottom wall bounces and left/right paddle collision, then checks for goals — respawning at center and reversing horizontal direction on a score.",
+        "Paddle controller (paddle_ctrl) moves each paddle at 4 pixels per vsync via switch inputs (SW1/SW2 for Player 1 left paddle, SW8/SW9 for Player 2 right paddle), clamped to screen bounds. All movement freezes when SW5 (pause) is high or the state is not GAMEPLAY.",
+        "Score controller (score_ctrl) increments the correct player's score on each goal pulse, asserts game_over and latches the winner bit when either score reaches 10, and resets cleanly on new_game.",
+        "Bitmap text rendered via a custom bitmap_pkg containing 8×8 glyph arrays for all needed characters. The rendering process selects the correct glyph and maps pixel coordinates to the right row/column bit with 2× scaling, drawing 'PONG', 'PRESS B1', 'GAME OVER', 'PLAYER X WINS', and live score digits.",
+        "A dashed center dividing line is produced during gameplay by asserting white whenever Hcount equals the screen's horizontal midpoint and Vcount falls in an even 8-pixel vertical stripe.",
+      ],
+      results: [
+        "Fully playable 2-player Pong synthesized entirely in hardware and running on the DE10-Lite.",
+        "Ball bounces correctly off top/bottom walls and both paddles using next-position lookahead collision detection.",
+        "Goals correctly increment the opposing player's score; ball respawns at center moving toward the scoring player's side.",
+        "Score reaching 10 immediately transitions to the game-over screen displaying the correct winner.",
+        "Pause (SW5) freezes all motion and ignores paddle inputs without corrupting any game state.",
+        "All text and score digits render correctly using scaled bitmap glyphs at full VGA resolution.",
+      ],
+      whatILearned: [
+        "Rendering graphics purely from combinational pixel-coordinate logic — no framebuffer — requires clean coordinate math and a solid mental model of the VGA active display window.",
+        "Splitting a complex design into independent, well-scoped modules (sync, FSM, ball, paddle, score, render) makes debugging dramatically easier; each module could be verified in isolation before integration.",
+        "Next-position lookahead for collision detection is essential — checking only the current position causes the ball to visibly overlap the paddle before reversing, which is obvious on real hardware.",
+        "The RTL Viewer was invaluable for catching unintended latches and incorrect signal connections before programming the board — bugs that simulation alone does not always expose.",
+        "Vsync-timed movement (once per 60 Hz frame) is a simple and effective way to decouple game logic from the pixel clock without needing a separate slow clock domain.",
+      ],
+      problemsEncountered: [
+        "The DE10-Lite's 50 MHz oscillator produces a pixel clock that is slightly off from the exact VGA specification after division, causing minor display boundary offsets on some monitors — a known hardware timing constraint of the board.",
+        "Collision detection required careful ordering: the paddle collision check must run before the goal check so a well-placed return is never misclassified as a goal when the ball reaches the edge.",
+        "Rendering multiple overlapping elements (ball, paddles, center line, score digits) from a single combinational process required a defined pixel priority scheme — later if-branches overwrite earlier ones, so draw order matters.",
+        "Bitmap glyph addressing requires both bit-reversal (7 - col) and 2× scale division to correctly map screen pixel coordinates to the right bit inside the 8×8 glyph array — getting this wrong produces mirror-image or stretched characters.",
+      ],
+      futureWork: [
+        "Variable ball speed that increases as rallies extend, matching the feel of the original Atari cabinet.",
+        "Angle-dependent ball reflection based on where the paddle is hit (center vs. edge), adding strategic depth.",
+        "Sound output via the DE10-Lite's audio DAC — a beep on paddle hit and on each goal.",
+        "Color: render paddles, ball, and text in distinct colors rather than monochrome white-on-black.",
+      ],
+    },
+    links: {
+      github: "https://github.com/EEL4712C/pong-extra-credit-arionstern",
+      video: "https://youtu.be/1DTNxwE_x9c",
+    },
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {
   slug: "easy-garden",
   title: "Easy Garden (EGN2020C Human-Centered Design)",
@@ -594,6 +686,7 @@ export const projects: Project[] = [
             video: "https://youtu.be/VKegnzyH4a0",
         },
         },
+
 
 
 
