@@ -28,9 +28,7 @@ export const labItems: LabItem[] = [
       "DMA-driven DAC waveform generation using LUTs",
       "Timer/interrupt scheduling for deterministic behavior",
     ],
-    links: {
-      // report: "/reports/microprocessor-labs.pdf",
-    },
+    links: {},
   },
 
   {
@@ -81,6 +79,23 @@ export const labItems: LabItem[] = [
       "Demonstrated temporal aliasing in video — making a spinning wheel appear frozen or reversed using sampling theory",
       "Designed FIR/IIR filters working across time, frequency, and pole-zero domains simultaneously",
       "Implemented DFT from scratch and benchmarked against FFT on a full-length audio file",
+    ],
+    links: {},
+  },
+
+  {
+    slug: "applied-ml",
+    title: "Applied Machine Learning (EEL4930)",
+    subtitle:
+      "Three project-based assignments applying regression, dimensionality reduction, and neural networks to real-world datasets — each delivered as a 4-page IEEE-format technical report.",
+    area: "Coursework",
+    tech: ["Python", "scikit-learn", "TensorFlow", "CNN", "PCA", "SVM", "Lasso", "GridSearchCV", "Jupyter"],
+    status: "Featured",
+    highlights: [
+      "Project 1: Lasso regression (α=0.004) on NYC Yellow Taxi data — Test R²=0.582, reducing 357 features to 56 via L1 regularization",
+      "Project 2: PCA + SVM pipeline for satellite ship detection — F1=0.944, accuracy=97.25%, with 26× inference speedup over baseline SVM",
+      "Project 3: CNN multi-label classification of 14 thoracic diseases from chest X-rays — soft loss weighting + threshold tuning improved test F1 by 61% over baseline",
+      "Each project delivered as a 4-page IEEE-format technical report with full experimental analysis",
     ],
     links: {},
   },
