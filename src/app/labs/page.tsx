@@ -37,7 +37,7 @@ export default function LabsPage() {
   const groups = {
     "Microprocessor Applications": labItems.filter((i) => i.area === "Microprocessor Applications"),
     "Digital Logic / FPGA": labItems.filter((i) => i.area === "Digital Logic / FPGA"),
-    Coursework: labItems.filter((i) => i.area === "Coursework"),
+    "Other Coursework": labItems.filter((i) => i.area === "Coursework"),
   };
 
   return (
