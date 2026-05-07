@@ -30,7 +30,6 @@ export const labItems: LabItem[] = [
     ],
     links: {
       // report: "/reports/microprocessor-labs.pdf",
-      // repo: "https://github.com/...",
     },
   },
 
@@ -46,16 +45,14 @@ export const labItems: LabItem[] = [
       "Separated datapath and control for scalable designs",
       "Verified behavior via simulation and waveform analysis",
     ],
-    links: {
-      // report: "/reports/digital-logic-labs.pdf",
-    },
+    links: {},
   },
 
   {
     slug: "digital-design",
     title: "Digital Design (EEL4712C)",
     subtitle:
-      "Eight-lab VHDL/SystemVerilog course on the DE10-Lite: combinational components, behavioral ALU, sequential logic, FSMD, VGA display, SV verification, SVA, and a Pong extra credit project.",
+      "Eight-lab VHDL/SystemVerilog course on the DE10-Lite: combinational components, behavioral ALU, sequential logic, FSMD, VGA display, SV verification, CRV, SVA — plus a Pong extra credit project.",
     area: "Digital Logic / FPGA",
     tech: ["VHDL", "SystemVerilog", "DE10-Lite", "Quartus", "QuestaSim", "VGA", "FSM", "ALU", "SVA", "CRV"],
     status: "Featured",
@@ -70,6 +67,22 @@ export const labItems: LabItem[] = [
     links: {
       video: "https://www.youtube.com/playlist?list=PLBkCR1HvIZEinFG499TMpVZYse8P9VpHZ",
     },
+  },
+
+  {
+    slug: "signals-systems",
+    title: "Signals & Systems (EEL3135)",
+    subtitle:
+      "Ten-lab MATLAB course covering discrete-time signals, sampling theory, convolution, frequency response, DTFT, Z-transforms, FIR/IIR filter design, and DFT/FFT — applied to audio, images, and video.",
+    area: "Coursework",
+    tech: ["MATLAB", "Signal Processing", "FIR/IIR Filters", "DTFT", "Z-Transform", "DFT/FFT", "Convolution", "Sampling Theory"],
+    highlights: [
+      "Synthesized multi-harmonic audio with ADSR envelopes and custom instrument timbres",
+      "Demonstrated temporal aliasing in video — making a spinning wheel appear frozen or reversed using sampling theory",
+      "Designed FIR/IIR filters working across time, frequency, and pole-zero domains simultaneously",
+      "Implemented DFT from scratch and benchmarked against FFT on a full-length audio file",
+    ],
+    links: {},
   },
 
   {
