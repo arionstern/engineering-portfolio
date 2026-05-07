@@ -8,7 +8,7 @@ export type LabItem = {
   status?: "Featured" | "In Progress" | "Archived";
   links?: {
     repo?: string;
-    report?: string; // can be /reports/xxx.pdf if you drop PDFs into /public/reports
+    report?: string;
     video?: string;
   };
 };
@@ -36,7 +36,7 @@ export const labItems: LabItem[] = [
 
   {
     slug: "digital-logic-labs",
-    title: "Digital Logic & Computer Systems Labs",
+    title: "Digital Logic & Computer Systems Labs (EEL3701C)",
     subtitle:
       "FSM design, datapath/control separation, and simulation-based debugging using FPGA tools.",
     area: "Digital Logic / FPGA",
@@ -51,9 +51,28 @@ export const labItems: LabItem[] = [
     },
   },
 
+  {
+    slug: "digital-design",
+    title: "Digital Design (EEL4712C)",
+    subtitle:
+      "Eight-lab VHDL/SystemVerilog course on the DE10-Lite: combinational components, behavioral ALU, sequential logic, FSMD, VGA display, SV verification, SVA, and a Pong extra credit project.",
+    area: "Digital Logic / FPGA",
+    tech: ["VHDL", "SystemVerilog", "DE10-Lite", "Quartus", "QuestaSim", "VGA", "FSM", "ALU", "SVA", "CRV"],
+    status: "Featured",
+    highlights: [
+      "Built combinational components (ripple-carry adder, inverting MUX, 7-seg decoder) in structural VHDL",
+      "Designed a generic-width behavioral ALU with 16 operations using the numeric_std package",
+      "Implemented counters, gray-code FSM, and clock generator with precise millisecond timing",
+      "Designed a full VGA sync generator and ROM-driven color raster display at 640×480 @ 60 Hz",
+      "Rebuilt VHDL designs in SystemVerilog and applied CRV + SVA for formal-style verification",
+      "Extra credit: fully functional 2-player Pong game with scoreboard, start/game-over screens, and VGA output",
+    ],
+    links: {
+      video: "https://www.youtube.com/playlist?list=PLBkCR1HvIZEinFG499TMpVZYse8P9VpHZ",
+    },
+  },
 
-
-    {
+  {
     slug: "dsa-coursework",
     title: "Data Structures & Algorithms Coursework (COP3530)",
     subtitle:
@@ -67,9 +86,8 @@ export const labItems: LabItem[] = [
       "Course Project: Elevation Sort Visualizer (links to full featured project page)",
     ],
     links: {
-      repo: "https://github.com/arionstern/DSA_P3", // optional “main” repo link shown on the card
-      video: "https://youtu.be/PtttdESWZPs",       // optional “main” video link shown on the card
-      // report: "/reports/dsa-coursework.pdf",     // optional if you add a combined PDF later
+      repo: "https://github.com/arionstern/DSA_P3",
+      video: "https://youtu.be/PtttdESWZPs",
     },
   },
 
@@ -87,12 +105,8 @@ export const labItems: LabItem[] = [
       "Project 4 (C++/SFML): Full Minesweeper clone with event-driven UI, board loading, and win/loss logic",
     ],
     links: {
-      repo: "https://github.com/arionstern/COP3504-P1-RLE", // optional “main” repo link shown on the card
-      video: "https://youtu.be/6S-9yNFeqLU",               // optional “main” video link shown on the card
-      // report: "/reports/cop3504c-coursework.pdf",        // optional if you add a combined PDF later
+      repo: "https://github.com/arionstern/COP3504-P1-RLE",
+      video: "https://youtu.be/6S-9yNFeqLU",
     },
   },
-
-
-
 ];
