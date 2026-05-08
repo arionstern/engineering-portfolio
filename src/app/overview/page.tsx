@@ -149,7 +149,7 @@ export default function OverviewPage() {
               </Link>
 
               <Link
-                href="/resume.pdf"
+                href="/resume_6.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-lg border bg-white px-3 py-2 text-sm font-medium text-zinc-900 hover:bg-zinc-50"
@@ -370,7 +370,7 @@ export default function OverviewPage() {
           {/* Swamp Launch */}
           <Card
             title="Swamp Launch (IREC Team) — Avionics PCB Design & Payload Software"
-            subtitle="University of Florida | 2025 – Present"
+            subtitle="University of Florida | Fall 2025"
           >
             <div className="flex flex-wrap gap-2">
               <Badge>Altium</Badge>
