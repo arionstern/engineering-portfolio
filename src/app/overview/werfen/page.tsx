@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Link from "next/link";
 import Page from "@/components/Page";
 
@@ -60,6 +61,79 @@ function Callout({
   );
 }
 
+function FlowNode({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="flex min-h-[4.5rem] items-center justify-center rounded-lg border border-blue-200 bg-blue-50 px-3 py-2 text-center text-xs font-medium leading-snug text-zinc-900">
+      {children}
+    </div>
+  );
+}
+
+function FlowArrowRight() {
+  return (
+    <div className="flex items-center justify-center text-blue-400">
+      <span className="text-lg">→</span>
+    </div>
+  );
+}
+
+function FlowArrowLeft() {
+  return (
+    <div className="flex items-center justify-center text-blue-400">
+      <span className="text-lg">←</span>
+    </div>
+  );
+}
+
+function FlowArrowDown({ col }: { col: 1 | 3 | 5 }) {
+  const colClass =
+    col === 1 ? "col-start-1" : col === 3 ? "col-start-3" : "col-start-5";
+  return (
+    <div className="grid grid-cols-5 py-1">
+      <div className={`flex justify-center text-blue-400 text-lg ${colClass}`}>
+        ↓
+      </div>
+    </div>
+  );
+}
+
+function FlowChart({
+  title,
+  rows,
+  note,
+}: {
+  title: string;
+  rows: string[][];
+  note?: string;
+}) {
+  return (
+    <div className="mt-4 rounded-lg border bg-white p-4">
+      <div className="text-sm font-semibold text-zinc-900">{title}</div>
+      <div className="mt-4">
+        {rows.map((row, ri) => (
+          <div key={ri}>
+            <div className="grid grid-cols-5 gap-2 items-stretch">
+              {row.map((step, si) => (
+                <Fragment key={`${ri}-${si}`}>
+                  <FlowNode>{step}</FlowNode>
+                  {si < row.length - 1 &&
+                    (ri % 2 === 1 ? <FlowArrowLeft /> : <FlowArrowRight />)}
+                </Fragment>
+              ))}
+            </div>
+            {ri < rows.length - 1 && (
+              <FlowArrowDown col={ri % 2 === 0 ? 5 : 1} />
+            )}
+          </div>
+        ))}
+      </div>
+      {note ? (
+        <p className="mt-4 text-xs italic text-zinc-600">{note}</p>
+      ) : null}
+    </div>
+  );
+}
+
 export default function WerfenPage() {
   return (
     <Page
@@ -83,7 +157,7 @@ export default function WerfenPage() {
         <div className="grid gap-4 md:grid-cols-4">
           <Stat label="Data pipelines built" value="2" />
           <Stat label="Time saved" value="~89–95%" />
-          <Stat label="Change orders authored" value="14" />
+          <Stat label="Change orders approved & implemented" value="14" />
           <Stat label="Combined tests supported" value="500+" />
         </div>
 
@@ -111,6 +185,28 @@ export default function WerfenPage() {
           ]}
         />
 
+        <FlowChart
+          title="Process flow — Minitab Data Pull v0"
+          rows={[
+            [
+              "Scan 5kD/5kE network lot folders",
+              "Copy new files into this week's folder",
+              "Run CPKPPKPuller Excel macro (xlwings)",
+            ],
+            [
+              "Append new rows to Minitab project",
+              "Post-processing & error correction",
+              "Data dump into Excel (Data_Dump sheet)",
+            ],
+            [
+              "Export run chart graphs (PNG)",
+              "Write Prep_Summary .txt file",
+              "Draft Reply-All email (charts + summary)",
+            ],
+          ]}
+          note="Optional side step (not shown): audits older lots that have homogeneity files but were never pulled into Excel."
+        />
+
         <BulletBlock
           title="FF1 5K Lysing Tensile Automation"
           bullets={[
@@ -120,6 +216,24 @@ export default function WerfenPage() {
             "Flags anomalies for a human double-check — an overnight fill (readings spanning more than one calendar date), a mismatch between the lot-code-implied date and the real fill date, or a lot name that doesn't match the expected format.",
             "Writes results into the tracking Excel workbook and Minitab project with duplicate-prevention, fully regenerates the Boxplot and Xbar charts every run (a COM-driven data write silently resets Minitab's custom axis labels, so there's no way to “gently” update while preserving formatting), and drafts the summary email — manual runtime of 20–30 min cut to about 2–4 min.",
           ]}
+        />
+
+        <FlowChart
+          title="Process flow — FF1 5K Lysing Tensile Automation"
+          rows={[
+            [
+              "Read last known lot from dest. Excel",
+              "Scan SAP ZPP_WI for newly ready lots",
+              "Filter to ready lots (GR Qty ≠ 0)",
+            ],
+            [
+              "Write to Excel & Minitab (dedup)",
+              "Read seal-strength & fill date, flag issues",
+              "Per lot: open GEM log doc & verify content",
+            ],
+            ["Regenerate charts & export PNGs", "Draft Reply-All summary email"],
+          ]}
+          note="Steps 4–6 repeat for each ready lot found in that week's SAP scan."
         />
 
         <Callout
@@ -142,10 +256,10 @@ export default function WerfenPage() {
         <BulletBlock
           title="Engineering Change Orders (ECOs)"
           bullets={[
-            "Authored 14 Engineering Change Orders updating SPMs/routers for the mock audit ampule filling documentation, plus supporting IAFs and spreadsheet validation assessments.",
+            "Authored 14 Engineering Change Orders updating SPMs/routers for the mock audit ampule filling documentation, plus supporting IAFs and spreadsheet validation assessments — all 14 COs are now approved and implemented.",
             "Every change was grounded in direct floor observation — watching operators perform each step and asking questions — rather than working from the existing document alone, so the rewritten procedure matched how the process was actually being run, not just how it was written down.",
             "Completed initial markups for the related bulking documents as well; change orders for those are still in progress as of the end of the internship.",
-            "Reviewed and walked every change through cross-functional approval with Product Support, QA, Supply Chain, and Engineering before it was finalized.",
+            "Walked every change through cross-functional approval with Product Support, QA, Supply Chain, and Engineering before it was finalized.",
           ]}
         />
 
