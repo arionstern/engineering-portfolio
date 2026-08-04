@@ -367,6 +367,82 @@ export default function OverviewPage() {
         <SectionTitle>Engineering teams & research</SectionTitle>
         <div className="grid gap-4">
 
+          {/* Werfen */}
+          <Card
+            title="Werfen — Manufacturing Engineering Intern"
+            subtitle="Orangeburg, NY | May 2026 – Present"
+          >
+            <div className="flex flex-wrap gap-2">
+              <Badge>Python</Badge>
+              <Badge>win32com / xlwings</Badge>
+              <Badge>SAP</Badge>
+              <Badge>Excel</Badge>
+              <Badge>Minitab</Badge>
+              <Badge>Outlook</Badge>
+              <Badge>Process Validation</Badge>
+            </div>
+
+            <ul className="mt-4 list-disc pl-5 leading-6">
+              <li>
+                Built two end-to-end Python automation pipelines (SAP, Excel, Minitab, Outlook via win32com/xlwings) replacing manual weekly data-pull workflows, cutting processing time roughly 89–95%.
+              </li>
+              <li>
+                Authored 14 Engineering Change Orders updating SPMs/routers to align documented manufacturing procedures with real floor practice; reviewed through cross-functional approval.
+              </li>
+              <li>
+                Specced, justified with hands-on measurements and load calculations, and purchased ergonomic manufacturing equipment; supported process validation and testing across 500+ combined tests.
+              </li>
+            </ul>
+
+            <div className="mt-4">
+              <Link href="/overview/werfen" className="text-blue-600 underline">
+                View details →
+              </Link>
+            </div>
+          </Card>
+
+          {/* Undergraduate Peer Instructor */}
+          <Card
+            title="Undergraduate Peer Instructor — EEL3701C Digital Logic and Computer Systems"
+            subtitle="University of Florida | Fall 2026 – Present"
+          >
+            <div className="flex flex-wrap gap-2">
+              <Badge>Quartus</Badge>
+              <Badge>VHDL</Badge>
+              <Badge>FSMs</Badge>
+              <Badge>RALU</Badge>
+              <Badge>CPU / Assembly</Badge>
+              <Badge>Teaching</Badge>
+            </div>
+
+            <ul className="mt-4 list-disc pl-5 leading-6">
+              <li>
+                Leading a lab section of ~15 students — creating and overseeing weekly lab quizzes and demos, grading labs/quizzes/exams, and holding office hours.
+              </li>
+              <li>
+                Covering Quartus/VHDL circuit design, FSMs, RALU design, and CPU/assembly programming for the course's digital logic curriculum.
+              </li>
+            </ul>
+          </Card>
+
+          {/* Gator Autonomous Racing */}
+          <Card
+            title="Gator Autonomous Racing — Electrical Co-Lead"
+            subtitle="University of Florida | May 2026 – Present"
+          >
+            <div className="flex flex-wrap gap-2">
+              <Badge>Embedded Systems</Badge>
+              <Badge>PCB Design</Badge>
+              <Badge>Autonomous Vehicles</Badge>
+            </div>
+
+            <ul className="mt-4 list-disc pl-5 leading-6">
+              <li>
+                Leading embedded systems and PCB design efforts for the team's autonomous vehicle platform as Electrical Co-Lead.
+              </li>
+            </ul>
+          </Card>
+
           {/* Swamp Launch */}
           <Card
             title="Swamp Launch (IREC Team) — Avionics PCB Design & Payload Software"
